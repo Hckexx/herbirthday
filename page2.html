@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday & Anniversary My Love ❤</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url(./assets/Panda.jpg) no-repeat center center/cover;
+      font-family: 'Ultra', sans-serif;
+      text-align: center;
+      color: #ba55d3;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .heading {
+      font-size: 3em;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .heart {
+      font-size: 2.5em;
+      color: #fd7479;
+      margin: 20px 0;
+      animation: heartbeat 1s infinite;
+    }
+
+    .message {
+      font-size: 1.2em;
+      color: #dda0dd;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background: #fd7479;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 2em;
+      color: red;
+      animation: float 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .floating-confetti {
+      position: absolute;
+      font-size: 2em;
+      color: yellow;
+      animation: float 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .typed-message {
+      font-size: 1.5em;
+      color: #ff69b4;
+      margin: 20px 0;
+    }
+
+    .candle {
+      position: absolute;
+      width: 10px;
+      height: 30px;
+      background: #ffcc00;
+      border-radius: 5px;
+      bottom: 0;
+      animation: flicker 1s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .love-note {
+      position: absolute;
+      font-size: 1.2em;
+      color: #ff69b4;
+      cursor: pointer;
+      animation: float 5s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="./audio/happy.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Content -->
+  <div class="container">
+    <h1 class="heading">Happy Birthday & Anniversary ❤</h1>
+    <div class="heart">💖💖</div>
+    <div class="typed-message" id="typed-message"></div>
+    <div class="message">
+      My love, you are the best thing that has ever happened to me. I love you so much, my panda. You are my happiness, my strength, and my everything. No matter what happens, I will always be with you in your good and bad times. Aur itte full mood swings tumna nai mnjy pura opp hai tume sambhaltin mnjy manatin mood kharab raha toh acha kar daltin I love you sooo much yrr kabhi nai chodko jao mnjy plsss plss har humesha saath rehna hume. In shaa Allah, we will have a beautiful life together. Mai bohot baar hurt kro hu uske liye maafii plzz, ik bohot baar mai nai smjhta tumna I hurt many a time but tume chup rehjatin mai kitta satatu aur bhi satatu dw uske liyech hu so mai nd pyaar karne bhi. Allah humna humesha k liye saath rakhna humari family ku strong rakhna, aur aaj itta spcl day humare liye aapka janm din aur humara anniversaryy, humesha khush raho haste haste mere cute se panda... tume 17yrs turn hogaye mai hua nai ab bhi😭😭 Never ever leave me, okay? You complete me, and I feel empty without you. You always make me happy, even when I mess up. Thank you for always supporting me and loving me unconditionally. Happy birthday, my love! 💕
+    </div>
+    <button onclick="startHearts()">Click Me ❤</button>
+  </div>
+
+  <script>
+    // Function to start music
+    function playMusic() {
+      const audio = document.getElementById("bg-music");
+      audio.play().catch(() => {
+        alert("Click 'Allow' to play the music!"); // Handle browser autoplay policy
+      });
+    }
+
+    // Function to create floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    // Function to start hearts, confetti, candles, and music
+    function startHearts() {
+      playMusic(); // Start music
+      setInterval(createHeart, 300); // Create floating hearts
+      alert("I love you, my panda! 💕"); // Show alert
+      startConfetti(); // Start confetti
+      createCandlelight(); // Create candlelight
+      createLoveNotes(); // Create love notes
+    }
+
+    // Typed love message
+    const typedMessage = document.getElementById("typed-message");
+    const messages = [
+      "I love you more than words can say...",
+      "You are my everything...",
+      "Happy Birthday, my love! 💖",
+      "Happy Anniversary, my panda! 🐼",
+      "Forever yours, always and forever... ❤️"
+    ];
+    let messageIndex = 0;
+    let charIndex = 0;
+
+    function typeMessage() {
+      if (charIndex < messages[messageIndex].length) {
+        typedMessage.textContent += messages[messageIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeMessage, 100);
+      } else {
+        setTimeout(eraseMessage, 2000);
+      }
+    }
+
+    function eraseMessage() {
+      if (charIndex > 0) {
+        typedMessage.textContent = messages[messageIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseMessage, 50);
+      } else {
+        typedMessage.textContent = '';
+        messageIndex = (messageIndex + 1) % messages.length;
+        setTimeout(typeMessage, 500);
+      }
+    }
+
+    typeMessage();
+
+    // Confetti Effect
+    function startConfetti() {
+      const confettiCount = 100;
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('floating-confetti');
+        confetti.innerHTML = '🎉';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+
+    // Candlelight Effect
+    function createCandlelight() {
+      const candleCount = 10;
+      for (let i = 0; i < candleCount; i++) {
+        const candle = document.createElement('div');
+        candle.classList.add('candle');
+        candle.style.left = Math.random() * 100 + 'vw';
+        candle.style.bottom = Math.random() * 50 + 'vh';
+        document.body.appendChild(candle);
+      }
+    }
+
+    // Interactive Love Notes
+    function createLoveNotes() {
+      const loveNoteCount = 5;
+      const loveMessages = [
+        "You are my sunshine 🌞",
+        "I love you to the moon and back 🌙",
+        "You make my heart skip a beat 💓",
+        "Forever and always 💍",
+        "You are my everything 💖"
+      ];
+      for (let i = 0; i < loveNoteCount; i++) {
+        const loveNote = document.createElement('div');
+        loveNote.classList.add('love-note');
+        loveNote.innerHTML = loveMessages[i];
+        loveNote.style.left = Math.random() * 100 + 'vw';
+        loveNote.style.top = Math.random() * 100 + 'vh';
+        loveNote.addEventListener('click', () => {
+          loveNote.style.display = 'none';
+        });
+        document.body.appendChild(loveNote);
+      }
+    }
+  </script>
+</body>
+</html>
